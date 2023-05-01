@@ -77,10 +77,13 @@ def Stations():
     #For dictionary
     stations_values = []
     for station, id in for_station:
+
         stations_dict = {}
+
         stations_dict['station'] = station
         stations_dict['id'] = id
         stations_values.append(stations_dict)
+        
     return jsonify (stations_values) 
 
 #For tobs
@@ -94,7 +97,9 @@ def Tobs():
     #For dictionary
     all_tobs = []
     for date, tobs, prcp in tobs:
+
         tobs_dict = {}
+
         tobs_dict["Date"] = date
         tobs_dict["Tobs"] = tobs        
         tobs_dict["Precipitation"] = prcp    
@@ -115,11 +120,15 @@ def Start_date(start_date):
 
     start_date_info = []
     for min, avg, max in start_res:
-        start_date_info_dict = {}
-        start_date_info_dict["Min Temp"] = min
-        start_date_info_dict["Avg Temp"] = avg
-        start_date_info_dict["Max Temp"] = max
-        start_date_info.append(start_date_info_dict) 
+
+        start_dict = {}
+
+        start_dict["Min Temp"] = min
+        start_dict["Avg Temp"] = avg
+        start_dict["Max Temp"] = max
+
+        start_date_info.append(start_dict) 
+
     return jsonify(start_date_info)
 
 #For start date AND send date
@@ -135,12 +144,14 @@ def Start_end_date(start_date, end_date):
   
     start_end_date = []
     for min, avg, max in start_end_res:
-        start_end_date_dict = {}
-        start_end_date_dict["Min Temp"] = min
-        start_end_date_dict["Avg Temp"] = avg
-        start_end_date_dict["Max Temp"] = max
-        start_end_date.append(start_end_date_dict) 
-    
+
+        start_end_dict = {}
+
+        start_end_dict["Min Temp"] = min
+        start_end_dict["Avg Temp"] = avg
+        start_end_dict["Max Temp"] = max
+
+        start_end_date.append(start_end_dict) 
 
     return jsonify(start_end_date)
 
