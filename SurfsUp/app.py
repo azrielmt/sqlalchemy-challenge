@@ -112,8 +112,6 @@ def Tobs():
 def Start_date(start_date):
     session = Session(engine)
 
-    """Return the TMIN, TAVG, and TMAX for dates greater than or equal to the start date"""
-
     start_res = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).filter(Measurement.date >= start_date).all()
 
     session.close()
@@ -135,8 +133,6 @@ def Start_date(start_date):
 @app.route("/api/v1.0/<start_date>/<end_date>")
 def Start_end_date(start_date, end_date):
     session = Session(engine)
-
-    """Return the TMIN, TAVG, and TMAX for dates greater than or equal to the start date to the end date"""
 
     start_end_res = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).filter(Measurement.date >= start_date).filter(Measurement.date <= end_date).all()
 
